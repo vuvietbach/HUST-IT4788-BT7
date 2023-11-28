@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 void main() {
@@ -50,7 +51,13 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
         appBar: AppBar(title: const Text('Flutter Demo')),
         body: isLoading
-            ? const Center(child: CircularProgressIndicator())
+            ? Center(
+        child: LoadingAnimationWidget.twistingDots(
+          leftDotColor: const Color(0xFF1A1A3F),
+          rightDotColor: const Color(0xFFEA3799),
+          size: 200,
+        ),
+      )
             : WebViewWidget(
                 controller: _controller,
               ));
